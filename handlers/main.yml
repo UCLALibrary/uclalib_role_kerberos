@@ -1,0 +1,30 @@
+---
+- name: Start KDC services
+  service:
+    name: krb5kdc
+    state: started
+
+- name: Stop KDC services
+  service:
+    name: krb5kdc
+    state: stopped
+
+- name: Restart KDC services
+  service:
+    name: krb5kdc
+    state: restarted
+
+- name: Start kadmin services
+  service:
+    name: kadmin
+    state: started
+
+- name: Stop kadmin services
+  service:
+    name: kadmin
+    state: stopped
+
+- name: Restart kadmin services
+  service:
+    name: kadmin
+    state: restarted
