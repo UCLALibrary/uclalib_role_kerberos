@@ -1,0 +1,24 @@
+[logging]
+ default = FILE:/var/log/krb5libs.log
+ kdc = FILE:/var/log/krb4kdc.log
+ admin_server = FILE:/var/log/kadmind.log
+
+[libdefaults]
+ default_realm = library
+
+[realms]
+ "{{ krb-realm }}" = {
+{% if kdc is defined %}
+{% for node in kdc %}
+ kdc = "{{ node }}"
+{% endfor %}
+{% endif %}
+{% if krb-admin-server is defined %}
+{% for node in krb-admin-server %}
+ admin_server = "{{ node }}"
+{% endfor %}
+{% endif %}
+ }
+
+[domain_realm]
+ ."{{ krb-realm }}" = "{{ krb-realm }}"

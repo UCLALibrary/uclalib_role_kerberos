@@ -1,0 +1,12 @@
+---
+pam-krb-package: pam_krb5
+krb-server-package: krb5-server
+
+krb-server-path: /var/kerberos/krb5kdc
+krb-server-conf: /etc/krb5.conf
+
+krb-realm: test.realm.com
+kdc: ['localhost','192.168.60.19']
+admin_server: ['localhost','192.168.60.19']
+
+kdc-port: 88
